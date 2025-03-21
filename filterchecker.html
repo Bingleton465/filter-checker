@@ -2,50 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>url checker 😛</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-        }
-        .result {
-            margin-top: 20px;
-        }
-    </style>
+    <title>URL Checker 😛</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>url checker for securly 😛</h1>
+    <h1>URL Checker for Securly 😛</h1>
     <form id="urlForm">
-        <label for="urlInput">enter url sweeties!:</label>
+        <label for="urlInput">Enter URL sweeties!:</label>
         <input type="text" id="urlInput" required>
-        <button type="submit">check it 🤞</button>
+        <button type="submit">Check it 🤞</button>
     </form>
     <div class="result" id="result"></div>
 
-    <script>
-        document.getElementById('urlForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const url = document.getElementById('urlInput').value;
-            checkUrl(url);
-        });
-
-        function checkUrl(url) {
-            fetch(`https://useast-www.securly.com/check?url=${encodeURIComponent(url)}`)
-                .then(response => response.json())
-                .then(data => {
-                    const resultDiv = document.getElementById('result');
-                    if (data.blocked) {
-                        resultDiv.innerHTML = `<p style="color: red;">The URL <strong>${url}</strong> is blocked by Securly.</p>`;
-                    } else {
-                        resultDiv.innerHTML = `<p style="color: green;">The URL <strong>${url}</strong> is not blocked by Securly.</p>`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    const resultDiv = document.getElementById('result');
-                    resultDiv.innerHTML = `<p style="color: orange;">There was an error checking the URL. Please try again later.</p>`;
-                });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
